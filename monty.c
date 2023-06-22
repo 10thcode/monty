@@ -21,7 +21,7 @@ int main(int ac, char *av[])
 	if (ac != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
-		return(EXIT_FAILURE);
+		return (EXIT_FAILURE);
 	}
 
 	exit_code = EXIT_SUCCESS;
@@ -32,7 +32,7 @@ int main(int ac, char *av[])
 	if (fd == -1)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", filename);
-		return(EXIT_FAILURE);
+		return (EXIT_FAILURE);
 	}
 
 	bytes_read = _getline(&lineptr, fd);
