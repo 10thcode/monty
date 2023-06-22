@@ -16,7 +16,7 @@ void pop(stack_t **stack, unsigned int __attribute__((unused)) line_number)
 		return;
 	}
 
-	*stack = *stack->next;
+	*stack = (*stack)->next;
 
 	if (*stack)
 		(*stack)->prev = NULL;
