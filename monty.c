@@ -1,7 +1,7 @@
 #include "monty.h"
 
 void execute(char *lineptr, stack_t **stack, unsigned int line_number);
-int exit_code = EXIT_SUCCESS;
+int exit_code;
 
 /**
  * main - program entry point
@@ -23,6 +23,8 @@ int main(int ac, char *av[])
 		fprintf(stderr, "USAGE: monty file\n");
 		return(EXIT_FAILURE);
 	}
+
+	exit_code = EXIT_SUCCESS;
 
 	filename = av[1];
 	fd  = open(filename, O_RDONLY);
