@@ -16,7 +16,10 @@ void pop(stack_t **stack, unsigned int __attribute__((unused)) line_number)
 		return;
 	}
 
-	temp->next->prev = NULL;
-	*stack = temp->next;
+	*stack = *stack->next;
+
+	if (*stack)
+		*stack->prev = NULL;
+
 	free(temp);
 }
