@@ -19,7 +19,7 @@ void pop(stack_t **stack, unsigned int __attribute__((unused)) line_number)
 	*stack = *stack->next;
 
 	if (*stack)
-		*stack->prev = NULL;
+		(*stack)->prev = NULL;
 
 	free(temp);
 }
