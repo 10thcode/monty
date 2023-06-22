@@ -6,7 +6,6 @@
 #include <string.h>
 #include <unistd.h>
 #include <fcntl.h>
-
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -51,4 +50,4 @@ void add(stack_t **stack, unsigned int line_number);
 
 extern int exit_code;
 
-#endif /* MONTY_H */
+#endif
