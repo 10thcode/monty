@@ -5,10 +5,8 @@ int exit_code;
 
 /**
  * main - program entry point
- *
  * @ac: argument count
  * @av: argument list
- *
  * Return: Always return EXIT_SUCCESS
  */
 int main(int ac, char *av[])
