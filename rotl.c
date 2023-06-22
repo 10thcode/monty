@@ -15,13 +15,13 @@ void rotl(stack_t **stack, unsigned int __attribute__((unused)) line_number)
 	prev = (*stack)->prev;
 	next = (*stack)->next;
 
-	while ((*stack)->next != NULL)
+	while (next != NULL)
 	{
 		(*stack)->prev = next;
 		(*stack)->next = prev;
 		prev = *stack;
 		*stack = next;
-		next = (*stack)->next;
+		next = next->next;
 	}
 
 	(*stack)->prev = next;
