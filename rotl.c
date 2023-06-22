@@ -7,23 +7,20 @@
  */
 void rotl(stack_t **stack, unsigned int __attribute__((unused)) line_number)
 {
-	stack_t *prev, *next;
+	stack_t *head, *tail;
 
-	if (*stack == NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
 		return;
 
-	prev = (*stack)->prev;
-	next = (*stack)->next;
+	head = *stack;
+	tail = *stack;
 
-	while (next != NULL)
-	{
-		(*stack)->prev = next;
-		(*stack)->next = prev;
-		prev = *stack;
-		*stack = next;
-		next = next->next;
-	}
+	while (tail->next != NULL)
+		tail = tail->next;
 
-	(*stack)->prev = next;
-	(*stack)->next = prev;
+	*stack = (*stack)->next;
+	head->next->prev = NULL;
+	head->next = NULL;
+	head->prev = tail;
+	tail->next = head;
 }
