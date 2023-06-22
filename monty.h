@@ -44,7 +44,6 @@ void free_stack(stack_t *stack);
 ssize_t _getline(char **lineptr, int fd);
 void (*get_handler(char *opcode))(stack_t **, unsigned int);
 int is_zeroes(char *str);
-void execute(char *lineptr, stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int __attribute__((unused)) line_number);
 void swap(stack_t **stack, unsigned int line_number);

@@ -1,5 +1,6 @@
 #include "monty.h"
 
+void execute(char *lineptr, stack_t **stack, unsigned int line_number);
 int exit_code = EXIT_SUCCESS;
 
 /**
