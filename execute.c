@@ -13,10 +13,13 @@ void execute(char *lineptr, stack_t **stack, unsigned int line_number)
 	void (*handler)(stack_t **, unsigned int);
 
 	token = strtok(lineptr, " \n");
-	if (token == NULL || strcmp(token, "nop") == 0)
+	if (token == NULL || strcmp(token, "nop") == 0 || token[0] == '#')
 		return;
-	if (token[0] == '#')
+	if (strcmp(token, "stack") == 0 || strcmp(token, "queue") == 0)
+	{
+		format = format == STACK ? QUEUE : STACK;
 		return;
+	}
 	if (strcmp(token, "push") == 0)
 	{
 		token = strtok(NULL, " \n");

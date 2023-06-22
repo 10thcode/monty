@@ -2,6 +2,7 @@
 
 void execute(char *lineptr, stack_t **stack, unsigned int line_number);
 int exit_code;
+int format;
 
 /**
  * main - program entry point
@@ -22,8 +23,6 @@ int main(int ac, char *av[])
 		return (EXIT_FAILURE);
 	}
 
-	exit_code = EXIT_SUCCESS;
-
 	filename = av[1];
 	fd  = open(filename, O_RDONLY);
 
@@ -33,6 +32,8 @@ int main(int ac, char *av[])
 		return (EXIT_FAILURE);
 	}
 
+	format = STACK;
+	exit_code = EXIT_SUCCESS;
 	bytes_read = _getline(&lineptr, fd);
 
 	while (bytes_read != -1)

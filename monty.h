@@ -1,11 +1,15 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#define STACK 1
+#define QUEUE 0
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
 #include <fcntl.h>
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -57,5 +61,6 @@ void rotl(stack_t **stack, unsigned int __attribute__((unused)) line_number);
 void rotr(stack_t **stack, unsigned int __attribute__((unused)) line_number);
 
 extern int exit_code;
+extern int format;
 
 #endif
