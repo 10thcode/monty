@@ -13,14 +13,13 @@ void execute(char *lineptr, stack_t **stack, unsigned int line_number)
 	void (*handler)(stack_t **, unsigned int);
 
 	token = strtok(lineptr, " \n");
-
 	if (token == NULL || strcmp(token, "nop") == 0)
 		return;
-
+	if (token[0] == '#')
+		return;
 	if (strcmp(token, "push") == 0)
 	{
 		token = strtok(NULL, " \n");
-
 		if (token != NULL)
 		{
 			element = atoi(token);
@@ -30,20 +29,16 @@ void execute(char *lineptr, stack_t **stack, unsigned int line_number)
 				return;
 			}
 		}
-
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit_code = EXIT_FAILURE;
 		return;
 	}
-
 	handler = get_handler(token);
-
 	if (handler == NULL)
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, token);
 		exit_code = EXIT_FAILURE;
 		return;
 	}
-
 	handler(stack, line_number);
 }
